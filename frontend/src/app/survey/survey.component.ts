@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-survey',
@@ -12,8 +13,8 @@ export class SurveyComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClickSubmit(data){
-    alert("Entered Name: " + data.FirstName);
+  onClickSubmit(form: NgForm){
+    console.log(form.value);
   }
 
 }
