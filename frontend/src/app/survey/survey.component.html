@@ -1,1 +1,99 @@
-<p>survey works!</p>
+<form>
+    <div class="container" id="form">
+        <h1>Welcome to the Student Survey Form for SWE 645</h1>
+        
+        <div>
+            <label for="FirstName">Name:</label>
+            <input id = "FirstName" type="text" placeholder="First Name" required>
+        </div>
+        
+        <div>
+            <label for="LastName">Surname:</label>
+            <input id = "LastName" type="text" placeholder="Last Name" required>
+        </div>
+        
+        <div>
+            <label for="StreetAddress">Address:</label>
+            <input id = "StreetAddress" type="text" placeholder="Street Address" required>
+            
+            <label for="City">City:</label>
+            <input id = "City" type="text" placeholder="City" required>
+            
+            
+            <label for="State">State:</label>
+            <input id = "State" type="text" placeholder="State" required>
+            
+            <label for="Zip">Zip:</label>
+            <input id = "Zip" type="number" placeholder="Zip" required>
+        </div>
+        
+        <label for="TelNum">Tel:</label>
+        <input id = "TelNum" type="number" placeholder="Telephone number" required>
+        
+        <label for="email">Email:</label>
+        <input id = "email" type="email" placeholder="Email" required>
+        
+        <div>
+        <label for="date">Date of survey:</label>
+        <input id = "date" type="date" placeholder="date of survey" required>
+        </div>
+        
+        <h3>Please specify something you like about GMU Campus</h3>
+        <label for="student">Students</label>
+        <input id = "student" type = "checkbox">
+        
+        <label for="location">Location</label>
+        <input id = "location" type = "checkbox">
+        
+        <label for="campus">Campus</label>
+        <input id = "campus" type = "checkbox">
+        
+        <label for="atmosphere">Atmosphere</label>
+        <input id = "atmosphere" type = "checkbox">
+        
+        <label for="dormrooms">Dorm Rooms</label>
+        <input id = "dormrooms" type = "checkbox">
+        
+        <label for="sports">Sports</label>
+        <input id = "sports" type = "checkbox">
+        
+        <h3>Please specify how you became interested in the University</h3>
+        <label for="friends">Friends</label>
+        <input id = "friends" type = "radio">
+        
+        <label for="television">Television</label>
+        <input id = "television" type = "radio">
+        
+        <label for="internet">Internet</label>
+        <input id = "internet" type = "radio">
+        
+        <label for="other">Other</label>
+        <input id = "other" type = "radio">
+        
+        <div>
+            <label for="refer">How likely are you to refer a friend to GMU</label>
+            <select id="refer">
+              <option value="vlikely">Very Likely</option>
+              <option value="likely">Likely</option>
+              <option value="ulikely">Unlikely</option>
+            </select>
+        </div>
+        
+        <div>
+            <h3>You can enter a raffle!</h3>
+            <textarea rows="4" cols="50">	
+            </textarea>
+        </div>
+        
+        <div>
+            <h3>Add any additional comments!</h3>
+            <textarea rows="4" cols="50">	
+            </textarea>
+        </div>
+        
+        <div>
+            <button type="primary" class="btn btn-primary">Submit</button>
+            <button  type="danger" class="btn btn-danger">Cancel</button>
+        </div>
+    </div>
+</form>
