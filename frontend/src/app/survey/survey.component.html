@@ -1,13 +1,13 @@
-<form>
+<form #student = "ngForm" (ngSubmit) = "onClickSubmit(student.value)">
     <div class="container" id="form">
         <h1>Welcome to the Student Survey Form for SWE 645</h1>
         
         <div>
             <label for="FirstName">Name:</label>
-            <input id = "FirstName" type="text" placeholder="First Name" required>
+            <input name = "FirstName" type="text" placeholder="First Name" required ngModel>
         </div>
         
-        <div>
+        <!-- <div>
             <label for="LastName">Surname:</label>
             <input id = "LastName" type="text" placeholder="Last Name" required>
         </div>
@@ -36,7 +36,7 @@
         <div>
         <label for="date">Date of survey:</label>
         <input id = "date" type="date" placeholder="date of survey" required>
-        </div>
+        </div> -->
         
         <h3>Please specify something you like about GMU Campus</h3>
         <label for="student">Students</label>
@@ -77,18 +77,6 @@
               <option value="likely">Likely</option>
               <option value="ulikely">Unlikely</option>
             </select>
-        </div>
-        
-        <div>
-            <h3>You can enter a raffle!</h3>
-            <textarea rows="4" cols="50">	
-            </textarea>
-        </div>
-        
-        <div>
-            <h3>Add any additional comments!</h3>
-            <textarea rows="4" cols="50">	
-            </textarea>
         </div>
         
         <div>

@@ -12,4 +12,8 @@ export class SurveyComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onClickSubmit(data){
+    alert("Entered Name: " + data.FirstName);
+  }
+
 }
