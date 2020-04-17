@@ -75,14 +75,14 @@ export class SurveyComponent implements OnInit {
         "radio":radio,
         "dropdown":dropdown
     };
-    console.log(form.value.location);
+    console.log(surveyJson);
     this.stringdata = JSON.stringify(surveyJson);
     console.log(this.stringdata);
-    this.submitservice.enroll(form)
-    .subscribe(
-      data => console.log('Success!', data),
-      error => console.log('Error', error)
-    )
+    // this.submitservice.enroll(form)
+    // .subscribe(
+    //   data => console.log('Success!', data),
+    //   error => console.log('Error', error)
+    // )
 
   }
 
