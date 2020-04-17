@@ -87,6 +87,7 @@ export class SurveyComponent implements OnInit {
         "radio":radio,
         "dropdown":dropdown
     };
+<<<<<<< HEAD
     console.log(formData.get("email"));
     //this.stringdata = JSON.stringify(surveyJson);
     //console.log(this.stringdata);
@@ -99,6 +100,16 @@ export class SurveyComponent implements OnInit {
       (response) => console.log(response),
       (error) => console.log(error)
     );
+=======
+    console.log(surveyJson);
+    this.stringdata = JSON.stringify(surveyJson);
+    console.log(this.stringdata);
+    // this.submitservice.enroll(form)
+    // .subscribe(
+    //   data => console.log('Success!', data),
+    //   error => console.log('Error', error)
+    // )
+>>>>>>> 6a77fca1482c0f94de19043aa033b132d469c2ad
 
   }
 
