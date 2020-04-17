@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./survey.component.css']
 })
 export class SurveyComponent implements OnInit {
+  stringdata: any;
 
   constructor() { }
 
@@ -15,6 +16,9 @@ export class SurveyComponent implements OnInit {
 
   onClickSubmit(form: NgForm){
     console.log(form.value);
+    this.stringdata = JSON.stringify(form.value);
+    console.log(this.stringdata);
+
   }
 
 }
