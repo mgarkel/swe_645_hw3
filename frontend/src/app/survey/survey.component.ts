@@ -61,6 +61,18 @@ export class SurveyComponent implements OnInit {
     if(form.value.refer == "ulikely"){
       dropdown = 2;
     }
+    var formData: any = new FormData();
+    formData.append('firstname', form.value.FirstName);
+    formData.append('lastname', form.value.LastName);
+    formData.append('streetaddress', form.value.StreetAddress);
+    formData.append('city', form.value.City);
+    formData.append('state', form.value.State);
+    formData.append('zip', form.value.Zip);
+    formData.append('phone', form.value.Tel);
+    formData.append('email', form.value.Email);
+    formData.append('checkbox', checkbox);
+    formData.append('radio', radio.toString());
+    formData.append('dropdown', dropdown.toString());
     var surveyJson = 
     {
         "firstname": form.value.FirstName,
@@ -75,14 +87,18 @@ export class SurveyComponent implements OnInit {
         "radio":radio,
         "dropdown":dropdown
     };
-    console.log(form.value.location);
-    this.stringdata = JSON.stringify(surveyJson);
-    console.log(this.stringdata);
-    this.submitservice.enroll(form)
+    console.log(formData.get("email"));
+    //this.stringdata = JSON.stringify(surveyJson);
+    //console.log(this.stringdata);
+    /*this.submitservice.enroll(form)
     .subscribe(
       data => console.log('Success!', data),
       error => console.log('Error', error)
-    )
+    )*/
+    this.http.post<any>("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/",formData).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error)
+    );
 
   }
 
