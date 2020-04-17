@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-<<<<<<< Updated upstream
 import {SubmitService} from '../submit.service';
-=======
 import { HttpClient } from '@angular/common/http'
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-survey',
