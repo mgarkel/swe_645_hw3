@@ -8,6 +8,7 @@ import { SurveyComponent } from './survey/survey.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     FormsModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
