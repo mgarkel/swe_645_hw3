@@ -1,78 +1,86 @@
-<form #student = "ngForm" (ngSubmit) = "onClickSubmit(student.value)">
-    <div class="container" id="form">
+<form #student = "ngForm" ngNativeValidate (ngSubmit) = "onClickSubmit(student)">
         <h1>Welcome to the Student Survey Form for SWE 645</h1>
         
         <div>
-            <label for="FirstName">Name:</label>
-            <input name = "FirstName" type="text" placeholder="First Name" required ngModel>
+            <label for="FirstName">First:</label>
+            <input name = "FirstName" ngModel required type="text" placeholder="First Name">
         </div>
-        
-        <!-- <div>
-            <label for="LastName">Surname:</label>
-            <input id = "LastName" type="text" placeholder="Last Name" required>
+
+        <div>
+            <label for="LastName">Last:</label>
+            <input name = "LastName" type="text" placeholder="Last Name" required ngModel>
         </div>
-        
+
         <div>
             <label for="StreetAddress">Address:</label>
-            <input id = "StreetAddress" type="text" placeholder="Street Address" required>
-            
+            <input name = "StreetAddress" type="text" placeholder="Street Address" required ngModel>
+        </div>
+
+        <div>
             <label for="City">City:</label>
-            <input id = "City" type="text" placeholder="City" required>
-            
-            
+            <input name = "City" type="text" placeholder="City" required ngModel>
+        </div>
+
+        <div>
             <label for="State">State:</label>
-            <input id = "State" type="text" placeholder="State" required>
-            
-            <label for="Zip">Zip:</label>
-            <input id = "Zip" type="number" placeholder="Zip" required>
+            <input name = "State" type="text" placeholder="State" required ngModel>
         </div>
         
-        <label for="TelNum">Tel:</label>
-        <input id = "TelNum" type="number" placeholder="Telephone number" required>
-        
-        <label for="email">Email:</label>
-        <input id = "email" type="email" placeholder="Email" required>
-        
         <div>
-        <label for="date">Date of survey:</label>
-        <input id = "date" type="date" placeholder="date of survey" required>
-        </div> -->
+            <label for="Zip">Zip:</label>
+            <input name = "Zip" type="number" placeholder="Zip" required ngModel>
+        </div>
+
+        <div>
+            <label for="Tel">Tel:</label>
+            <input name = "Tel" type="number" placeholder="Tel" required ngModel>
+        </div>
+
+        <div>
+            <label for="Email">Email:</label>
+            <input name = "Email" type="text" placeholder="Email" required ngModel>
+        </div>
+
+        <div>
+            <label for="Date">Date:</label>
+            <input name = "Date" type="date" placeholder="Date" required ngModel>
+        </div>
         
         <h3>Please specify something you like about GMU Campus</h3>
-        <label for="student">Students</label>
-        <input id = "student" type = "checkbox">
+        <label for="students">Students</label>
+        <input name = "students" type = "checkbox" ngModel value = "campus">
         
         <label for="location">Location</label>
-        <input id = "location" type = "checkbox">
+        <input name = "location" type = "checkbox" ngModel value = "location">
         
         <label for="campus">Campus</label>
-        <input id = "campus" type = "checkbox">
+        <input name = "campus" type = "checkbox" ngModel value = "campus">
         
         <label for="atmosphere">Atmosphere</label>
-        <input id = "atmosphere" type = "checkbox">
+        <input name = "atmosphere" type = "checkbox" ngModel value = "atmosphere">
         
         <label for="dormrooms">Dorm Rooms</label>
-        <input id = "dormrooms" type = "checkbox">
+        <input name = "dorms" type = "checkbox" ngModel value="dormrooms">
         
         <label for="sports">Sports</label>
-        <input id = "sports" type = "checkbox">
+        <input name = "sports" type = "checkbox" ngModel value="sports">
         
         <h3>Please specify how you became interested in the University</h3>
         <label for="friends">Friends</label>
-        <input id = "friends" type = "radio">
+        <input name = "interested" type = "radio" ngModel value = "friends">
         
         <label for="television">Television</label>
-        <input id = "television" type = "radio">
+        <input name = "interested" type = "radio" ngModel value = "television">
         
         <label for="internet">Internet</label>
-        <input id = "internet" type = "radio">
+        <input name = "interested" type = "radio" ngModel value = "internet">
         
         <label for="other">Other</label>
-        <input id = "other" type = "radio">
+        <input name = "interested" type = "radio" ngModel value = "other">
         
         <div>
             <label for="refer">How likely are you to refer a friend to GMU</label>
-            <select id="refer">
+            <select name="refer" ngModel>
               <option value="vlikely">Very Likely</option>
               <option value="likely">Likely</option>
               <option value="ulikely">Unlikely</option>
@@ -80,8 +88,6 @@
         </div>
         
         <div>
-            <button type="primary" class="btn btn-primary">Submit</button>
-            <button  type="danger" class="btn btn-danger">Cancel</button>
+            <button mat-raised-button color="primary">Submit</button>
         </div>
-    </div>
 </form>
