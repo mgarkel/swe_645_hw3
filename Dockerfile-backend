@@ -13,7 +13,8 @@ RUN apt-get update -y && \
 
 RUN apt-get install libmysqlclient-dev -y && \
 	pip install mysqlclient && \
-	pip install -r req.txt
+	pip install -r req.txt && \
+	pip install -U flask-cors
 
 EXPOSE 5000
 ENTRYPOINT ["python"]
