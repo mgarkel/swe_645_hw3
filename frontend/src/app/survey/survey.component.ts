@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http'
   templateUrl: './survey.component.html',
   styleUrls: ['./survey.component.css']
 })
+
 export class SurveyComponent implements OnInit {
   stringdata: any;
 

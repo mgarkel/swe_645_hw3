@@ -1,5 +1,6 @@
 from flask import Flask, request, abort, jsonify, make_response
 from flask_mysqldb import MySQL
+from flask_cors import CORS
 import json
 
 app = Flask(__name__)
@@ -9,7 +10,7 @@ app.config['MYSQL_USER'] = 'admin'
 app.config['MYSQL_PASSWORD'] = '12345678'
 app.config['MYSQL_DB'] = 'hw3'
 app.config['MYSQL_PORT'] = 3306
-
+CORS(app)
 mysql = MySQL(app)
 
 
