@@ -87,7 +87,7 @@ export class SurveyComponent implements OnInit {
         "radio":radio,
         "dropdown":dropdown
     };
-    console.log(formData.get("email"));
+    // console.log(formData.get("email"));
     //this.stringdata = JSON.stringify(surveyJson);
     //console.log(this.stringdata);
     /*this.submitservice.enroll(form)
