@@ -4,9 +4,9 @@ RUN mkdir server
 
 WORKDIR /server
 
-COPY ./backend/req.txt /server/req.txt
+COPY req.txt /server/req.txt
 
-COPY ./backend/script.py /server/script.py
+COPY script.py /server/script.py
 
 RUN apt-get update -y && \
 	apt-get install -y python-pip python-dev
