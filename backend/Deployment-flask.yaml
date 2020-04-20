@@ -18,4 +18,4 @@ spec:
       - name: flask 
         image: mgarkel/backend_hw3:latest
         ports: 
-        - containerPort: 80 
+        - containerPort: 5000 
