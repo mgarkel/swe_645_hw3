@@ -71,6 +71,7 @@ export class SurveyComponent implements OnInit {
     formData.append('zip', form.value.Zip);
     formData.append('phone', form.value.Tel);
     formData.append('email', form.value.Email);
+    formData.append('date_survey', form.value.Date)
     formData.append('checkbox', checkbox);
     formData.append('radio', radio.toString());
     formData.append('dropdown', dropdown.toString());
@@ -96,7 +97,7 @@ export class SurveyComponent implements OnInit {
       data => console.log('Success!', data),
       error => console.log('Error', error)
     )*/
-    this.http.post<any>("http://a9fe0e8a4834311eaa9460a514c95060-1102233544.us-east-2.elb.amazonaws.com:5000/",formData).subscribe(
+    this.http.post<any>("http://a81486151835411eaad1006ffc916681-163898015.us-east-2.elb.amazonaws.com:5000/",formData).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );

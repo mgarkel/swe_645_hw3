@@ -583,7 +583,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this = this;
 
           //this.result = this.http.get("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/");
-          this.http.get("http://a9fe0e8a4834311eaa9460a514c95060-1102233544.us-east-2.elb.amazonaws.com:5000/").subscribe(function (data) {
+          this.http.get("http://a81486151835411eaad1006ffc916681-163898015.us-east-2.elb.amazonaws.com:5000/").subscribe(function (data) {
             Object.values(data).forEach(function (value) {
               if (value[10]) {
                 var checkbox = "";
@@ -880,6 +880,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           formData.append('zip', form.value.Zip);
           formData.append('phone', form.value.Tel);
           formData.append('email', form.value.Email);
+          formData.append('date_survey', form.value.Date);
           formData.append('checkbox', checkbox);
           formData.append('radio', radio.toString());
           formData.append('dropdown', dropdown.toString());
@@ -905,7 +906,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             error => console.log('Error', error)
           )*/
 
-          this.http.post("http://a9fe0e8a4834311eaa9460a514c95060-1102233544.us-east-2.elb.amazonaws.com:5000/", formData).subscribe(function (response) {
+          this.http.post("http://a81486151835411eaad1006ffc916681-163898015.us-east-2.elb.amazonaws.com:5000/", formData).subscribe(function (response) {
             return console.log(response);
           }, function (error) {
             return console.log(error);
