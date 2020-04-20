@@ -1,10 +1,10 @@
 kind: Service 
 apiVersion: v1 
 metadata: 
-  name: angular-service 
+  name: nginx-service 
 spec: 
   selector: 
-    app: angular 
+    app: nginx 
   ports: 
   - protocol: TCP 
     port: 80 
