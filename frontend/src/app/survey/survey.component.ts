@@ -100,6 +100,7 @@ export class SurveyComponent implements OnInit {
       (response) => console.log(response),
       (error) => console.log(error)
     );
+    alert("Your Survey Has Been Submitted!")
 
   }
 

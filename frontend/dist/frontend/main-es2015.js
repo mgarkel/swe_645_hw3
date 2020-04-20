@@ -270,15 +270,15 @@ function ResultComponent_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "b");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "Checkbox:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](30, "Liked:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](31);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](32, "b");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Radio:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](33, "Interested by:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "b");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "Dropdown:");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](36, "How Likely to Recommend:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -529,10 +529,11 @@ class SurveyComponent {
           error => console.log('Error', error)
         )*/
         this.http.post("http://a9fe0e8a4834311eaa9460a514c95060-1102233544.us-east-2.elb.amazonaws.com:5000/", formData).subscribe((response) => console.log(response), (error) => console.log(error));
+        alert("Your Survey Has Been Submitted!");
     }
 }
 SurveyComponent.ɵfac = function SurveyComponent_Factory(t) { return new (t || SurveyComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_submit_service__WEBPACK_IMPORTED_MODULE_1__["SubmitService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-SurveyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SurveyComponent, selectors: [["app-survey"]], decls: 87, vars: 0, consts: [[2, "text-align", "center", "border", "1px solid red"], ["ngNativeValidate", "", 3, "ngSubmit"], ["student", "ngForm"], ["for", "FirstName"], ["name", "FirstName", "ngModel", "", "required", "", "type", "text", "placeholder", "First Name"], ["for", "LastName"], ["name", "LastName", "type", "text", "placeholder", "Last Name", "required", "", "ngModel", ""], ["for", "StreetAddress"], ["name", "StreetAddress", "type", "text", "placeholder", "Street Address", "required", "", "ngModel", ""], ["for", "City"], ["name", "City", "type", "text", "placeholder", "City", "required", "", "ngModel", ""], ["for", "State"], ["name", "State", "type", "text", "placeholder", "State", "required", "", "ngModel", ""], ["for", "Zip"], ["name", "Zip", "type", "number", "placeholder", "Zip", "required", "", "ngModel", ""], ["for", "Tel"], ["name", "Tel", "type", "number", "placeholder", "Tel", "required", "", "ngModel", ""], ["for", "Email"], ["name", "Email", "type", "text", "placeholder", "Email", "required", "", "ngModel", ""], ["for", "Date"], ["name", "Date", "type", "date", "placeholder", "Date", "required", "", "ngModel", ""], ["for", "students"], ["name", "students", "type", "checkbox", "ngModel", "", "value", "campus"], ["for", "location"], ["name", "location", "type", "checkbox", "ngModel", "", "value", "location"], ["for", "campus"], ["name", "campus", "type", "checkbox", "ngModel", "", "value", "campus"], ["for", "atmosphere"], ["name", "atmosphere", "type", "checkbox", "ngModel", "", "value", "atmosphere"], ["for", "dormrooms"], ["name", "dorms", "type", "checkbox", "ngModel", "", "value", "dormrooms"], ["for", "sports"], ["name", "sports", "type", "checkbox", "ngModel", "", "value", "sports"], ["for", "friends"], ["name", "interested", "type", "radio", "ngModel", "", "value", "friends"], ["for", "television"], ["name", "interested", "type", "radio", "ngModel", "", "value", "television"], ["for", "internet"], ["name", "interested", "type", "radio", "ngModel", "", "value", "internet"], ["for", "other"], ["name", "interested", "type", "radio", "ngModel", "", "value", "other"], ["for", "refer"], ["name", "refer", "ngModel", ""], ["value", "vlikely"], ["value", "likely"], ["value", "ulikely"], ["mat-raised-button", "", "color", "primary"]], template: function SurveyComponent_Template(rf, ctx) { if (rf & 1) {
+SurveyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: SurveyComponent, selectors: [["app-survey"]], decls: 89, vars: 0, consts: [[2, "text-align", "center", "border", "1px solid red"], ["ngNativeValidate", "", 3, "ngSubmit"], ["student", "ngForm"], ["for", "FirstName"], ["name", "FirstName", "ngModel", "", "required", "", "type", "text", "placeholder", "First Name"], ["for", "LastName"], ["name", "LastName", "type", "text", "placeholder", "Last Name", "required", "", "ngModel", ""], ["for", "StreetAddress"], ["name", "StreetAddress", "type", "text", "placeholder", "Street Address", "required", "", "ngModel", ""], ["for", "City"], ["name", "City", "type", "text", "placeholder", "City", "required", "", "ngModel", ""], ["for", "State"], ["name", "State", "type", "text", "placeholder", "State", "required", "", "ngModel", ""], ["for", "Zip"], ["name", "Zip", "type", "number", "placeholder", "Zip", "required", "", "ngModel", ""], ["for", "Tel"], ["name", "Tel", "type", "number", "placeholder", "Tel", "required", "", "ngModel", ""], ["for", "Email"], ["name", "Email", "type", "text", "placeholder", "Email", "required", "", "ngModel", ""], ["for", "Date"], ["name", "Date", "type", "date", "placeholder", "Date", "required", "", "ngModel", ""], ["for", "students"], ["name", "students", "type", "checkbox", "ngModel", "", "value", "campus"], ["for", "location"], ["name", "location", "type", "checkbox", "ngModel", "", "value", "location"], ["for", "campus"], ["name", "campus", "type", "checkbox", "ngModel", "", "value", "campus"], ["for", "atmosphere"], ["name", "atmosphere", "type", "checkbox", "ngModel", "", "value", "atmosphere"], ["for", "dormrooms"], ["name", "dorms", "type", "checkbox", "ngModel", "", "value", "dormrooms"], ["for", "sports"], ["name", "sports", "type", "checkbox", "ngModel", "", "value", "sports"], ["for", "friends"], ["name", "interested", "type", "radio", "ngModel", "", "value", "friends"], ["for", "television"], ["name", "interested", "type", "radio", "ngModel", "", "value", "television"], ["for", "internet"], ["name", "interested", "type", "radio", "ngModel", "", "value", "internet"], ["for", "other"], ["name", "interested", "type", "radio", "ngModel", "", "value", "other"], ["for", "refer"], ["name", "refer", "ngModel", ""], ["value", "vlikely"], ["value", "likely"], ["value", "ulikely"], ["mat-raised-button", "", "color", "primary"], ["type", "reset", "value", "Reset"]], template: function SurveyComponent_Template(rf, ctx) { if (rf & 1) {
         const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "body");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 0);
@@ -658,6 +659,9 @@ SurveyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](85, "button", 46);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](86, "Submit");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](87, "div");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](88, "input", 47);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
