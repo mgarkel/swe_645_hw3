@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: deployment-name
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        label-key : label-value  
+    spec:
+      containers:
+        - name: AngularJS
+          image: mgarkel/frontend_hw3:latest
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 80
