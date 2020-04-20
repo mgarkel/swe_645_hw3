@@ -10,7 +10,7 @@ spec:
         label-key : label-value  
     spec:
       containers:
-        - name: AngularJS
+        - name: angular
           image: mgarkel/frontend_hw3:latest
           imagePullPolicy: Always
           ports:
