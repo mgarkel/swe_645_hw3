@@ -9,7 +9,7 @@ COPY ./backend/req.txt /server/req.txt
 COPY ./backend/script.py /server/script.py
 
 RUN apt-get update -y && \
-    apt-get install -y python-pip python-dev
+	apt-get install -y python-pip python-dev
 
 RUN apt-get install libmysqlclient-dev -y && \
 	pip install mysqlclient && \
@@ -19,6 +19,5 @@ EXPOSE 5000
 ENTRYPOINT ["python"]
 CMD ["script.py"]
 
- 
 
 
