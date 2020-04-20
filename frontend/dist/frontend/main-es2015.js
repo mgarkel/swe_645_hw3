@@ -318,7 +318,7 @@ class ResultComponent {
     }
     httpget() {
         //this.result = this.http.get("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/");
-        this.http.get("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/").subscribe((data) => {
+        this.http.get("http://a9fe0e8a4834311eaa9460a514c95060-1102233544.us-east-2.elb.amazonaws.com:5000/").subscribe((data) => {
             Object.values(data).forEach(value => {
                 if (value[10]) {
                     var checkbox = "";
@@ -528,7 +528,7 @@ class SurveyComponent {
           data => console.log('Success!', data),
           error => console.log('Error', error)
         )*/
-        this.http.post("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/", formData).subscribe((response) => console.log(response), (error) => console.log(error));
+        this.http.post("http://a9fe0e8a4834311eaa9460a514c95060-1102233544.us-east-2.elb.amazonaws.com:5000/", formData).subscribe((response) => console.log(response), (error) => console.log(error));
     }
 }
 SurveyComponent.ɵfac = function SurveyComponent_Factory(t) { return new (t || SurveyComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_submit_service__WEBPACK_IMPORTED_MODULE_1__["SubmitService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };

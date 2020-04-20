@@ -96,7 +96,7 @@ export class SurveyComponent implements OnInit {
       data => console.log('Success!', data),
       error => console.log('Error', error)
     )*/
-    this.http.post<any>("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/",formData).subscribe(
+    this.http.post<any>("http://a9fe0e8a4834311eaa9460a514c95060-1102233544.us-east-2.elb.amazonaws.com:5000/",formData).subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
