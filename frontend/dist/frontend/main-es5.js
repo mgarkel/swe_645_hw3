@@ -576,19 +576,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
       _createClass(ResultComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {} //this method is triggered when the get results button is pushed on the result html
+
       }, {
         key: "httpget",
         value: function httpget() {
           var _this = this;
 
-          //this.result = this.http.get("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/");
+          //we get the surveys from our API
           this.http.get("http://a81486151835411eaad1006ffc916681-163898015.us-east-2.elb.amazonaws.com:5000/").subscribe(function (data) {
             Object.values(data).forEach(function (value) {
               if (value[10]) {
+                //for the checkbox entry we tokenize and parse the string
                 var checkbox = "";
                 var tokenized = value[10].split(", ");
                 tokenized.forEach(function (element) {
+                  //for each token we replace it with the corresponding value
                   if (element == "0") checkbox = checkbox.concat("Students, ");
                   if (element == "1") checkbox = checkbox.concat("Location, ");
                   if (element == "2") checkbox = checkbox.concat("Campus, ");
@@ -597,25 +600,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   if (element == "5") checkbox = checkbox.concat("Sports, ");
                 });
                 value[10] = checkbox;
-              }
+              } //we replace the radio variable based on the integer that's returned
+
 
               if (value[11] == 0) value[11] = "Friends";
               if (value[11] == 1) value[11] = "Television";
               if (value[11] == 2) value[11] = "Internet";
-              if (value[11] == 3) value[11] = "Other";
+              if (value[11] == 3) value[11] = "Other"; //we replace the dropdown variable based on the integer that's returned
+
               if (value[12] == 0) value[12] = "Very Likely";
               if (value[12] == 1) value[12] = "Likely";
               if (value[12] == 2) value[12] = "Unlikely";
             });
-            console.log(data);
+            console.log(data); //we put all of the data into the result variable because that is the one the html is using
+
             _this.result = data;
           });
-          /*this.stringdata = JSON.stringify(this.result);
-          console.log(this.stringdata);
-          console.log(this.result.toString())
-          this.stringdata = JSON.stringify(this.result);
-          console.log(this.stringdata)
-          console.log(this.http.get("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/").toString())*/
         }
       }]);
 
@@ -815,11 +815,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "onClickSubmit",
         value: function onClickSubmit(form) {
-          var checkbox = "";
-          var radio = 0;
-          var dropdown = 0;
+          var checkbox = ""; //our value for the checkbox elements
+
+          var radio = 0; //our value for the radio button elements
+
+          var dropdown = 0; //our value for the dropdown elements
 
           if (form.value.students == true) {
+            //we concat the checkbox string based on what was selected in the checkbox group
             checkbox = checkbox.concat("0, ");
           }
 
@@ -844,6 +847,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (form.value.interested == "friends") {
+            //we change the value of the radio variable based on which radio button is selected
             radio = 0;
           }
 
@@ -860,6 +864,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (form.value.refer == "vlikely") {
+            //we change the value of the dropdown variable based on which dropdown option is selected
             dropdown = 0;
           }
 
@@ -871,7 +876,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             dropdown = 2;
           }
 
-          var formData = new FormData();
+          var formData = new FormData(); //we use the data gathered from the form and the variables we created to create a form data
+
           formData.append('firstname', form.value.FirstName);
           formData.append('lastname', form.value.LastName);
           formData.append('streetaddress', form.value.StreetAddress);
@@ -883,28 +889,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           formData.append('date_survey', form.value.Date);
           formData.append('checkbox', checkbox);
           formData.append('radio', radio.toString());
-          formData.append('dropdown', dropdown.toString());
-          var surveyJson = {
-            "firstname": form.value.FirstName,
-            "lastname": form.value.LastName,
-            "streetaddress": form.value.StreetAddress,
-            "city": form.value.City,
-            "state": form.value.State,
-            "zip": form.value.Zip,
-            "phone": form.value.Tel,
-            "email": form.value.Email,
-            "checkbox": checkbox,
-            "radio": radio,
-            "dropdown": dropdown
-          }; // console.log(formData.get("email"));
-          //this.stringdata = JSON.stringify(surveyJson);
-          //console.log(this.stringdata);
-
-          /*this.submitservice.enroll(form)
-          .subscribe(
-            data => console.log('Success!', data),
-            error => console.log('Error', error)
-          )*/
+          formData.append('dropdown', dropdown.toString()); //we post this form data to our API
 
           this.http.post("http://a81486151835411eaad1006ffc916681-163898015.us-east-2.elb.amazonaws.com:5000/", formData).subscribe(function (response) {
             return console.log(response);

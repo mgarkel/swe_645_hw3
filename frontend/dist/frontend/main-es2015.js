@@ -316,14 +316,17 @@ class ResultComponent {
     }
     ngOnInit() {
     }
+    //this method is triggered when the get results button is pushed on the result html
     httpget() {
-        //this.result = this.http.get("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/");
+        //we get the surveys from our API
         this.http.get("http://a81486151835411eaad1006ffc916681-163898015.us-east-2.elb.amazonaws.com:5000/").subscribe((data) => {
             Object.values(data).forEach(value => {
                 if (value[10]) {
+                    //for the checkbox entry we tokenize and parse the string
                     var checkbox = "";
                     var tokenized = value[10].split(", ");
                     tokenized.forEach(element => {
+                        //for each token we replace it with the corresponding value
                         if (element == "0")
                             checkbox = checkbox.concat("Students, ");
                         if (element == "1")
@@ -339,6 +342,7 @@ class ResultComponent {
                     });
                     value[10] = checkbox;
                 }
+                //we replace the radio variable based on the integer that's returned
                 if (value[11] == 0)
                     value[11] = "Friends";
                 if (value[11] == 1)
@@ -347,6 +351,7 @@ class ResultComponent {
                     value[11] = "Internet";
                 if (value[11] == 3)
                     value[11] = "Other";
+                //we replace the dropdown variable based on the integer that's returned
                 if (value[12] == 0)
                     value[12] = "Very Likely";
                 if (value[12] == 1)
@@ -355,14 +360,9 @@ class ResultComponent {
                     value[12] = "Unlikely";
             });
             console.log(data);
+            //we put all of the data into the result variable because that is the one the html is using
             this.result = data;
         });
-        /*this.stringdata = JSON.stringify(this.result);
-        console.log(this.stringdata);
-        console.log(this.result.toString())
-        this.stringdata = JSON.stringify(this.result);
-        console.log(this.stringdata)
-        console.log(this.http.get("http://ec2-3-16-181-241.us-east-2.compute.amazonaws.com:5000/").toString())*/
     }
 }
 ResultComponent.ɵfac = function ResultComponent_Factory(t) { return new (t || ResultComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
@@ -453,10 +453,10 @@ class SurveyComponent {
     ngOnInit() {
     }
     onClickSubmit(form) {
-        var checkbox = "";
-        var radio = 0;
-        var dropdown = 0;
-        if (form.value.students == true) {
+        var checkbox = ""; //our value for the checkbox elements
+        var radio = 0; //our value for the radio button elements
+        var dropdown = 0; //our value for the dropdown elements
+        if (form.value.students == true) { //we concat the checkbox string based on what was selected in the checkbox group
             checkbox = checkbox.concat("0, ");
         }
         if (form.value.location == true) {
@@ -474,7 +474,7 @@ class SurveyComponent {
         if (form.value.sports == true) {
             checkbox = checkbox.concat("5, ");
         }
-        if (form.value.interested == "friends") {
+        if (form.value.interested == "friends") { //we change the value of the radio variable based on which radio button is selected
             radio = 0;
         }
         if (form.value.interested == "television") {
@@ -486,7 +486,7 @@ class SurveyComponent {
         if (form.value.interested == "other") {
             radio = 3;
         }
-        if (form.value.refer == "vlikely") {
+        if (form.value.refer == "vlikely") { //we change the value of the dropdown variable based on which dropdown option is selected
             dropdown = 0;
         }
         if (form.value.refer == "likely") {
@@ -495,7 +495,7 @@ class SurveyComponent {
         if (form.value.refer == "ulikely") {
             dropdown = 2;
         }
-        var formData = new FormData();
+        var formData = new FormData(); //we use the data gathered from the form and the variables we created to create a form data
         formData.append('firstname', form.value.FirstName);
         formData.append('lastname', form.value.LastName);
         formData.append('streetaddress', form.value.StreetAddress);
@@ -508,27 +508,7 @@ class SurveyComponent {
         formData.append('checkbox', checkbox);
         formData.append('radio', radio.toString());
         formData.append('dropdown', dropdown.toString());
-        var surveyJson = {
-            "firstname": form.value.FirstName,
-            "lastname": form.value.LastName,
-            "streetaddress": form.value.StreetAddress,
-            "city": form.value.City,
-            "state": form.value.State,
-            "zip": form.value.Zip,
-            "phone": form.value.Tel,
-            "email": form.value.Email,
-            "checkbox": checkbox,
-            "radio": radio,
-            "dropdown": dropdown
-        };
-        // console.log(formData.get("email"));
-        //this.stringdata = JSON.stringify(surveyJson);
-        //console.log(this.stringdata);
-        /*this.submitservice.enroll(form)
-        .subscribe(
-          data => console.log('Success!', data),
-          error => console.log('Error', error)
-        )*/
+        //we post this form data to our API
         this.http.post("http://a81486151835411eaad1006ffc916681-163898015.us-east-2.elb.amazonaws.com:5000/", formData).subscribe((response) => console.log(response), (error) => console.log(error));
         alert("Your Survey Has Been Submitted!");
     }

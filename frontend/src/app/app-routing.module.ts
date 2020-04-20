@@ -5,7 +5,7 @@ import { ResultComponent } from './result/result.component'
 
 const routes: Routes = [
 
-    {
+    {//the survey and result paths
         path: 'survey',
         component: SurveyComponent,
     },
