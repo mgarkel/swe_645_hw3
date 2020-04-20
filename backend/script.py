@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'admin.cf5cfxkzhnoq.us-east-2.rds.amazonaws.com'
 app.config['MYSQL_USER'] = 'admin'
 app.config['MYSQL_PASSWORD'] = '12345678'
-app.config['MYSQL_DB'] = 'hw3'
+app.config['MYSQL_DB'] = 'hw3_db'
 app.config['MYSQL_PORT'] = 3306
 CORS(app)
 mysql = MySQL(app)
@@ -25,17 +25,18 @@ def api_handler():
         zip_code = request.form['zip']
         phone = request.form['phone']
         email = request.form['email']
+        date_survey = request.form['date_survey']
         checkbox = request.form['checkbox']
         radio = request.form['radio']
         dropdown = request.form['dropdown']
 
         query = """ INSERT INTO Student 
-                        (firstname, lastname, streetaddress, city, state, zip, phone, email, checkbox, radio, dropdown) 
+                        (firstname, lastname, streetaddress, city, state, zip, phone, email, date_survey, checkbox, radio, dropdown) 
                     VALUES 
-                        ("{}", "{}", "{}", "{}", "{}", {}, {}, "{}","{}", {}, {});"""
+                        ("{}", "{}", "{}", "{}", "{}", {}, {}, "{}","{}","{}", {}, {});"""
         try:
             cur = mysql.connection.cursor()
-            cur.execute(query.format(firstname, lastname, streetaddress, city, state, zip_code, phone, email, checkbox, radio, dropdown))
+            cur.execute(query.format(firstname, lastname, streetaddress, city, state, zip_code, phone, email, date_survey, checkbox, radio, dropdown))
             mysql.connection.commit()
         except:
             return make_response(jsonify("Bad Request"), 400)
